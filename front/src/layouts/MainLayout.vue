@@ -1,43 +1,69 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
-        <q-btn
+    <q-header elevated class="header">
+      <q-toolbar class="navbar">
+        <div class="nav-left">
+          <a onclick="site.changer('Accueil')" href="#profil">
+            <img style="height: 50px;" src="../../public/icons/lama.png">
+          </a>
+        </div>
+
+        <ul>
+          <li class="btn-nav">
+            <a href="">
+              Products
+            </a>
+          </li>
+          <li class="btn-nav">
+            <q-toolbar-title>
+              Lama Shop
+            </q-toolbar-title>
+          </li>
+          <li class="btn-nav">
+            <a href="">
+              All
+            </a>
+          </li>
+        </ul>
+
+        <div class="nav-right">
+          <a href="https://quasar.dev">
+            <img style="height: 50px;" src="../../public/icons/panier.png">
+          </a>
+          <a href="https://quasar.dev">
+            <img style="height: 42px;" src="../../public/icons/profil.png">
+          </a>
+        </div>
+        <!-- <q-btn
           flat
           dense
           round
           icon="menu"
           aria-label="Menu"
           @click="toggleLeftDrawer"
-        />
+        /> -->
 
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
+        <!-- <q-toolbar-title>
+          Lama Shop
+        </q-toolbar-title> -->
 
-        <div>Quasar v{{ $q.version }}</div>
+        <!-- <a href="">
+          All
+        </a>
+
+        <a href="https://quasar.dev">
+          <img style="height: 50px;" src="../../public/icons/panier.png">
+        </a>
+    
+        <a href="https://quasar.dev">
+          <img style="height: 42px;" src="../../public/icons/profil.png">
+        </a> -->
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
-      <q-list>
-        <q-item-label
-          header
-        >
-          Essential Links
-        </q-item-label>
-
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer>
+  <q-footer class="footer">
+    <p>@LamaShop</p>
+  </q-footer>
 
     <q-page-container>
       <router-view />
@@ -46,71 +72,83 @@
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
-import EssentialLink from 'components/EssentialLink.vue'
 
-const linksList = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
-]
-
-export default defineComponent({
-  name: 'MainLayout',
-
-  components: {
-    EssentialLink
-  },
-
-  setup () {
-    const leftDrawerOpen = ref(false)
-
-    return {
-      essentialLinks: linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer () {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
-    }
-  }
-})
 </script>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    color: rgb(26, 26, 26);
+    background-color: rgb(228, 228, 228);
+  }
+
+  .navbar ul {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap:50px;
+  }
+
+  .navbar ul li {
+    width: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar ul a {
+    color: rgb(26, 26, 26);
+    font-size: medium;
+    width: 60px;
+  }
+
+  .navbar ul a:hover {
+    color: rgb(26, 26, 26);
+    transition: 0.3s;
+    text-decoration: underline;
+  }
+
+  .navbar .nav-left{
+    width: 100px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar .nav-right {
+    width: 110px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    color: rgb(26, 26, 26);
+    background-color: rgb(228, 228, 228);
+  }
+
+</style>
+
