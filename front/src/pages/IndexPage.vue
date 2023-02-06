@@ -4,15 +4,22 @@
       alt="Quasar logo"
       src="~assets/quasar-logo-vertical.svg"
       style="width: 200px; height: 200px"
-    > -->
-    <q-btn outline label="Get Started" color="purple" no-caps class="q-mx-md" to="/register" />
+    /> -->
+    <q-btn
+      outline
+      label="Get Started"
+      color="purple"
+      no-caps
+      class="q-mx-md"
+      to="/register"
+    />
   </q-page>
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: 'IndexPage'
-})
+  name: "IndexPage",
+});
 </script>
