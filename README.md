@@ -1,10 +1,3 @@
----
-**Pour lancer le projet :**
-
-- cd /front
-- npm install
-- npm run dev
-
 
 ---
 - Lancer docker Desktop
@@ -15,6 +8,12 @@ docker-compose up -d
 
 ```
 # front
+**Pour lancer le projet :**
+
+- cd /front
+- npm install
+- npm run dev
+  
 port : http://localhost:9000/#/
 
  
