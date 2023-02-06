@@ -6,6 +6,12 @@
       style="width: 200px; height: 200px"
     > -->
     <q-btn outline label="Get Started" color="purple" no-caps class="q-mx-md" to="/register" />
+    <b-form-input
+          @input="search_text()"
+          v-model="search.text"
+          type="text"
+          placeholder="Search by Name"
+        ></b-form-input>
   </q-page>
 </template>
 
