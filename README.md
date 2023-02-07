@@ -18,7 +18,7 @@ Ils souhaitent créer un réseau de boutiques fédérées, à la manière des se
 
 En 48 heures chrono, faire un Proof of Concept de boutique en ligne décentralisée permettant aux petits et moyens commerçants de se libérer des gros marketplaces centralisés.
 
-- (Énoncé du projet)[https://tardigrade.land/campus/0/module/7/assignment/0?share=72c63dde-8aac-4a34-8ca4-dc36851b137f]
+- [Énoncé du projet](https://tardigrade.land/campus/0/module/7/assignment/0?share=72c63dde-8aac-4a34-8ca4-dc36851b137f)
 
 ## ⚙️ Fonctionnalités attendues
 
@@ -96,7 +96,7 @@ Au cours du projet, nous avons utilisé des dockerfiles ainsi qu'un docker compo
 '''pour lancer les conteneurs :    docker-compose up
 '''
 
-voir fichier (docker compose)[https://github.com/MansourWolou/48h/blob/master/docker-compose.yml]
+voir fichier [docker compose](https://github.com/MansourWolou/48h/blob/master/docker-compose.yml)
 
 ## ⛔Sécurisation
 
