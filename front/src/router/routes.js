@@ -7,7 +7,6 @@ const routes = [
       { path: '/', component: () => import('pages/IndexPage.vue') }
     ]
   },
-
   {
     path: '/infos',
     component: () => import('layouts/MainLayout.vue'),
@@ -15,12 +14,18 @@ const routes = [
       { path: '/infos', component: () => import('src/components/InfoProduct.vue')}
     ]
   },
-
   {
     path: '/register',
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '/register', component: () => import('src/components/Auth/registerPage.vue')}
+    ]
+  },
+  {
+    path: '/basket',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '/basket', component: () => import('src/components/basketPage.vue')}
     ]
   },
 

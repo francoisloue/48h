@@ -31,11 +31,14 @@
 
         <div class="nav-right">
           <a href="https://quasar.dev">
+            <Router-link to="/basket">
             <img style="height: 50px;" src="../../public/icons/panier.png">
+            </Router-link>
           </a>
-          <router-link to="/register">
+          
+          <Router-link to="/register">
             <img style="height: 42px;" src="../../public/icons/profil.png">
-          </router-link>
+          </Router-link>
         </div>
         <!-- <q-btn
           flat
