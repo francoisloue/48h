@@ -2,26 +2,39 @@
 const mysql = require('mysql2');
 
 // create the connection to database
-const connection = mysql.createConnection({
+const pool = mysql.createPool({
   host: 'localhost',
   user: 'root',
   password: 'example',
-  database: 'test',
+  database: 'mysql',
   port: '3307'
 }).promise()
 
 console.log("connection to database ");
+module.exports = {
+    pool
+  }
+/**
+ * export async function getNotes() {
+  const [rows] = await pool.query("SELECT * FROM notes")
+  return rows
+}
 
+export async function getNote(id) {
+  const [rows] = await pool.query(`
+  SELECT * 
+  FROM notes
+  WHERE id = ?
+  `, [id])
+  return rows[0]
+}
 
-// const getData = (req,res)=>{
-//     // simple query
-// connection.query(
-//     'SELECT * FROM `table` WHERE `name` = "Page" AND `age` > 45',
-//     function(err, results, fields) {
-//       console.log(results); // results contains rows returned by server
-//       console.log(fields); // fields contains extra meta data about results, if available
-//     }
-//   );
-// }  
-
-// console.log(getData);
+export async function createNote(title, contents) {
+  const [result] = await pool.query(`
+  INSERT INTO notes (title, contents)
+  VALUES (?, ?)
+  `, [title, contents])
+  const id = result.insertId
+  return getNote(id)
+}
+ */

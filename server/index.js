@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const config = require("./config");
+const db = require('./database')
 
 const retailerRouter = require("./retailer/retailer.route").router;
 
@@ -11,7 +12,10 @@ app.use(
     extended: true,
   })
 )
-
+app.use((err,req,es,next)=>{
+  console.error(err.stack)
+  res.status(500).send('something broken bro')
+})
 app.get('/', (request, response) => {
     response.json({ info: 'Node.js, Express, and Mysql API' })
 })
