@@ -2,7 +2,7 @@ const AppError = require("../utils/appError");
 const con = require("../services/db");
 
 exports.getAll = (req, res, next) => {
-  con.query("SELECT * FROM user", function (err, data, fields) {
+  con.query("SELECT * FROM Users", function (err, data, fields) {
     if (err) return next(new AppError(err));
     res.status(200).json({
       status: "succes",
@@ -12,11 +12,12 @@ exports.getAll = (req, res, next) => {
   });
 };
 
-exports.register = (req, res, next) => {
+exports.create = (req, res, next) => {
   if (!req.body) return next(new AppError("No form data found", 404));
-  const values = [req.body.name, "pending"];
+  const values = [req.body.instance, req.body.username, req.body.password];
+  console.log(values);
   con.query(
-    "INSERT INTO user (instance, username, password) VALUES(?)",
+    "INSERT INTO Users (instance, username, password) VALUES(?)",
     [values],
     function (err, data, fields) {
       if (err) return next(new AppError(err, 500));
@@ -28,18 +29,17 @@ exports.register = (req, res, next) => {
   );
 };
 
-exports.get = (req, res, next) => {
+exports.getId = (req, res, next) => {
   if (!req.params.id) {
     return next(new AppError("No user id found", 404));
   }
   con.query(
-    "SELECT * FROM user WHERE id = ?",
+    "SELECT * FROM Users WHERE id = ?",
     [req.params.id],
     function (err, data, fields) {
-      console.log(fields);
-      if (err) return next(new AppError(err, 500));
+      if (err || data?.length <= 0) return next(new AppError(err, 500));
       res.status(200).json({
-        status: "sus",
+        status: "success",
         length: data?.length,
         data: data,
       });
@@ -52,7 +52,7 @@ exports.update = (req, res, next) => {
     return next(new AppError("No user id found", 404));
   }
   con.query(
-    "UPDATE user SET status='completed' WHERE id=?",
+    "UPDATE Users SET status='completed' WHERE id=?",
     [req.params.id],
     function (err, data, fields) {
       if (err) return next(new AppError(err, 500));
@@ -69,7 +69,7 @@ exports.delete = (req, res, next) => {
     return next(new AppError("No user id found", 404));
   }
   con.query(
-    "DELETE FROM user WHERE id=?",
+    "DELETE FROM Users WHERE id=?",
     [req.params.id],
     function (err, fields) {
       if (err) return next(new AppError(err, 500));

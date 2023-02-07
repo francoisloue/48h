@@ -1,8 +1,9 @@
 const AppError = require("../utils/appError");
 const con = require("../services/db");
+const crypto = require("crypto");
 
 exports.getAll = (req, res, next) => {
-  con.query("SELECT * FROM user", function (err, data, fields) {
+  con.query("SELECT * FROM Product", function (err, data, fields) {
     if (err) return next(new AppError(err));
     res.status(200).json({
       status: "succes",
@@ -14,13 +15,18 @@ exports.getAll = (req, res, next) => {
 
 exports.create = (req, res, next) => {
   if (!req.body) return next(new AppError("No form data found", 404));
-  const values = [req.body.instance, req.body.username, req.body.password];
-  console.log(values);
+  const values = [
+    crypto.randomUUID(),
+    req.body.description,
+    req.body.price,
+    req.body.content,
+  ];
+  console.log(req.body);
   con.query(
-    "INSERT INTO user (instance, username, password) VALUES(?)",
+    "INSERT INTO Product (idProduct, description, price, content) VALUES(?)",
     [values],
     function (err, data, fields) {
-      if (err) return next(new AppError(err, 500));
+      if (err) return next(new AppError(err, 500), console.log(data));
       res.status(201).json({
         status: "success",
         message: "user created!",
@@ -34,7 +40,7 @@ exports.getId = (req, res, next) => {
     return next(new AppError("No user id found", 404));
   }
   con.query(
-    "SELECT * FROM user WHERE id = ?",
+    "SELECT * FROM Product WHERE id = ?",
     [req.params.id],
     function (err, data, fields) {
       if (err || data?.length <= 0) return next(new AppError(err, 500));
@@ -51,8 +57,9 @@ exports.update = (req, res, next) => {
   if (!req.params.id) {
     return next(new AppError("No user id found", 404));
   }
+  let toChange = req;
   con.query(
-    "UPDATE user SET status='completed' WHERE id=?",
+    `UPDATE Product SET ${toChange} WHERE id=?`,
     [req.params.id],
     function (err, data, fields) {
       if (err) return next(new AppError(err, 500));
@@ -69,7 +76,7 @@ exports.delete = (req, res, next) => {
     return next(new AppError("No user id found", 404));
   }
   con.query(
-    "DELETE FROM user WHERE id=?",
+    "DELETE FROM Product WHERE id=?",
     [req.params.id],
     function (err, fields) {
       if (err) return next(new AppError(err, 500));

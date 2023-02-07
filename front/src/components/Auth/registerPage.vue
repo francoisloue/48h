@@ -62,3 +62,16 @@ const handleRegister = async () => {
   }
 };
 </script>
+
+<style>
+#register {
+  background-color: #e1cbf0;
+  color: #222222;
+}
+
+#register .title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>
