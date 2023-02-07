@@ -93,8 +93,9 @@ L'avantage de docker sur ce projet, est son déploiment rapide et la décentrali
 
 Au cours du projet, nous avons utilisé des dockerfiles ainsi qu'un docker compose pour pouvoir conteneurisé.
 
-'''pour lancer les conteneurs :    docker-compose up
-'''
+```bash
+pour lancer les conteneurs :    docker-compose up
+```
 
 voir fichier [docker compose](https://github.com/MansourWolou/48h/blob/master/docker-compose.yml)
 
