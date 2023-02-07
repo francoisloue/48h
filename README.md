@@ -88,6 +88,18 @@ ALTER TABLE `Users`
 
 ## 🐋Docker 
 
+Nous sommes parti sur l'outil docker pour pouvoir conteneurisé notre base de donnée ainsi que notre api et notre site web.
+L'avantage de docker sur ce projet, est son déploiment rapide et la décentralisation des services.
+
+Au cours du projet, nous avons utilisé des dockerfiles ainsi qu'un docker compose pour pouvoir conteneurisé.
+
+'''pour lancer les conteneurs :    docker-compose up
+'''
+
+voir fichier (docker compose)[https://github.com/MansourWolou/48h/blob/master/docker-compose.yml]
+
+## ⛔Sécurisation
+
 * Équipe
   . Arnaud CLAVIER - B3 Dev
   . Nicolas SEGURA - B3 Cybersec
