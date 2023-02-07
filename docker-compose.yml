@@ -15,9 +15,12 @@ services:
     volumes:
       - mysql:/var/lib/mysql
 
-  # backend:
-  #   build: .
-  #   container_name: backend
+  backend:
+    build: 
+      context: ./server/.
+    container_name: backend
+    ports:
+      - "3000:3000"
 
   front:
     build:
