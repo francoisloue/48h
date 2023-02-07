@@ -2,7 +2,7 @@
     <div class="main" >
         <q-page class="grid-frame">
             <q-btn class="picture">
-                <img style="width: 250px;" src="../../public/icons/panier.png" alt="">
+                <img style="width: 250px;" src="../../public/icons/lama.png" alt="">
                 <p>
                 Name of the product <br>Price
                 </p>

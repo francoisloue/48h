@@ -3,7 +3,7 @@
     <q-page class="grid-frame">
     <q-btn class="frame">
       <Router-link to="/infos">
-        <img style="width: 250px;" src="../../public/icons/panier.png" alt="">
+        <img style="width: 250px;" src="../../public/icons/lama.png" alt="">
         <p>
           Name of the product <br>Price
         </p>
@@ -58,7 +58,7 @@
       </p>
     </q-btn>
     <q-btn class="frame">
-      <img style="width: 250px;" src="../../public/icons/panier.png" alt="">
+      <img   style="width: 250px;" src="../../public/icons/panier.png" alt="">
       <p>
         Name of the product <br>Price
       </p>

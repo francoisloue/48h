@@ -21,11 +21,25 @@ const routes = [
       { path: '/register', component: () => import('src/components/Auth/registerPage.vue')}
     ]
   },
+   {
+    path: '/login',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '/login', component: () => import('src/components/Auth/loginPage.vue')}
+    ]
+  },
   {
     path: '/basket',
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '/basket', component: () => import('src/components/basketPage.vue')}
+    ]
+  },
+  {
+    path: '/commandSuccess',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '/commandSuccess', component: () => import('src/components/commandSuccess.vue')}
     ]
   },
 

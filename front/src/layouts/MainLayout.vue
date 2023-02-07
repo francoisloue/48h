@@ -7,7 +7,6 @@
             <img style="height: 50px;" src="../../public/icons/lama.png">
           </a>
         </div>
-
         <ul>
           <li class="btn-nav">
             <a href="">
@@ -20,15 +19,10 @@
             </a>
           </li>
         </ul>
-
         <h3 class="title" >
           Lama Shop
-        </h3>
-          
-        <input class="search" type="text">
-        
-        
-
+        </h3>    
+        <q-input label="Rechercher" class="search" type="text"/>
         <div class="nav-right">
           <a href="https://quasar.dev">
             <Router-link to="/basket">
@@ -40,35 +34,11 @@
             <img style="height: 42px;" src="../../public/icons/profil.png">
           </Router-link>
         </div>
-        <!-- <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        /> -->
-
-        <!-- <q-toolbar-title>
-          Lama Shop
-        </q-toolbar-title> -->
-
-        <!-- <a href="">
-          All
-        </a>
-
-        <a href="https://quasar.dev">
-          <img style="height: 50px;" src="../../public/icons/panier.png">
-        </a>
-    
-        <a href="https://quasar.dev">
-          <img style="height: 42px;" src="../../public/icons/profil.png">
-        </a> -->
       </q-toolbar>
     </q-header>
 
   <q-footer class="footer">
-    <p>@LamaShop</p>
+    <p>Made in FR</p>
   </q-footer>
 
     <q-page-container>
@@ -81,7 +51,7 @@
 
 </script>
 
-<style>
+<style >
   * {
     margin: 0;
     padding: 0;
@@ -142,6 +112,10 @@
 
   title{
     display: none;
+  }
+
+  .search {
+    margin: 15px;
   }
 
   .footer {
