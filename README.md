@@ -37,7 +37,7 @@ _(L'idée serait qu'un utilisateur puisse ajouter un produit dans son panier et 
 
 ## API
 
-## BDD 
+## 🛢BDD 
 
 Pour la base de donnée, nous avons utilisé mysql.
 
@@ -85,6 +85,8 @@ CREATE TABLE `Users` (
 ALTER TABLE `Users`
   ADD PRIMARY KEY (`idUser`);
 ```
+
+## 🐋Docker 
 
 * Équipe
   . Arnaud CLAVIER - B3 Dev
