@@ -4,6 +4,7 @@
       <q-toolbar class="navbar">
         <div class="nav-left">
           <a href="">
+          <a href="">
             <img style="height: 50px;" src="../../public/icons/lama.png">
           </a>
         </div>
@@ -29,7 +30,9 @@
 
         <div class="nav-right">
           <a href="https://quasar.dev">
+            <Router-link to="/basket">
             <img style="height: 50px;" src="../../public/icons/panier.png">
+            </Router-link>
           </a>
           <router-link to="/register">
             <img style="height: 42px;" src="../../public/icons/profil.png">
@@ -65,6 +68,7 @@
     display: flex;
     justify-content: space-between;
     gap: 15px;
+    gap: 15px;
     color: rgb(26, 26, 26);
     background-color: #E4E4E4;
   }
@@ -74,9 +78,14 @@
     flex-direction: row;
     align-items: center;
     gap:15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:15px;
   }
 
   .navbar ul li {
+    width: 62px;
     width: 62px;
     display: flex;
     justify-content: center;

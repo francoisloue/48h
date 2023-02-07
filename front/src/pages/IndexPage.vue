@@ -2,12 +2,12 @@
   <div class="main" >
     <q-page class="grid-frame">
     <q-btn class="frame">
-      <router-link to="/infos">
+      <Router-link to="/infos">
         <img style="width: 250px;" src="../../public/icons/panier.png" alt="">
         <p>
           Name of the product <br>Price
         </p>
-      </router-link>
+      </Router-link>
     </q-btn>
     <q-btn class="frame">
       <img style="width: 250px;" src="../../public/icons/panier.png" alt="">
