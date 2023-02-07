@@ -33,9 +33,9 @@
           <a href="https://quasar.dev">
             <img style="height: 50px;" src="../../public/icons/panier.png">
           </a>
-          <a href="https://quasar.dev">
+          <router-link to="/register">
             <img style="height: 42px;" src="../../public/icons/profil.png">
-          </a>
+          </router-link>
         </div>
         <!-- <q-btn
           flat
