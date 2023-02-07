@@ -1,14 +1,13 @@
 <template>
   <div class="main" >
-    <div class="search">
-      <input class="search" type="text">
-    </div>
     <q-page class="grid-frame">
     <q-btn class="frame">
-      <img style="width: 250px;" src="../../public/icons/panier.png" alt="">
-      <p>
-        Name of the product <br>Price
-      </p>
+      <router-link to="/infos">
+        <img style="width: 250px;" src="../../public/icons/panier.png" alt="">
+        <p>
+          Name of the product <br>Price
+        </p>
+      </router-link>
     </q-btn>
     <q-btn class="frame">
       <img style="width: 250px;" src="../../public/icons/panier.png" alt="">
@@ -90,28 +89,29 @@ export default defineComponent({
 
 <style>
   .main {
+    margin: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 30px;
   }
-  
-  .search {
-    position: absolute;
-    width: 200px;
-    background-color: rgb(228, 228, 228);
-    display: flex;
-    justify-content: center;
-  }
 
   .grid-frame {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
   }
 
   .frame {
     width: 300px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .grid-frame {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+    }
   }
 </style>
