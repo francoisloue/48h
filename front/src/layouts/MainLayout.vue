@@ -15,9 +15,9 @@
             </a>
           </li>
           <li class="btn-nav">
-            <a href="">
-              All
-            </a>
+            <Router-link to="/add">
+              Add
+            </Router-link>
           </li>
         </ul>
 
