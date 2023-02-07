@@ -3,7 +3,7 @@
     <q-header elevated class="header">
       <q-toolbar class="navbar">
         <div class="nav-left">
-          <a onclick="site.changer('Accueil')" href="#profil">
+          <a href="">
             <img style="height: 50px;" src="../../public/icons/lama.png">
           </a>
         </div>
@@ -15,16 +15,19 @@
             </a>
           </li>
           <li class="btn-nav">
-            <q-toolbar-title>
-              Lama Shop
-            </q-toolbar-title>
-          </li>
-          <li class="btn-nav">
             <a href="">
               All
             </a>
           </li>
         </ul>
+
+        <h3 class="title" >
+          Lama Shop
+        </h3>
+          
+        <input class="search" type="text">
+        
+        
 
         <div class="nav-right">
           <a href="https://quasar.dev">
@@ -84,30 +87,23 @@
     font-family: Arial, Helvetica, sans-serif;
   }
 
-  .header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
   .navbar {
     display: flex;
     justify-content: space-between;
-    gap: 25px;
+    gap: 15px;
     color: rgb(26, 26, 26);
     background-color: rgb(228, 228, 228);
   }
 
   .navbar ul {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap:50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:15px;
   }
 
   .navbar ul li {
-    width: 110px;
+    width: 62px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -141,6 +137,10 @@
     align-items: center;
   }
 
+  title{
+    display: none;
+  }
+
   .footer {
     display: flex;
     justify-content: center;
@@ -150,5 +150,25 @@
     background-color: rgb(228, 228, 228);
   }
 
+  @media screen and (min-width: 768px) {
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 25px;
+      color: rgb(26, 26, 26);
+      background-color: rgb(228, 228, 228);
+    }
+
+    .navbar ul {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap:50px;
+    }
+
+    title{
+      width: 110px;
+    }
+}
 </style>
 
