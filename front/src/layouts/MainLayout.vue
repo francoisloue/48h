@@ -22,7 +22,7 @@
         <h3 class="title" >
           Lama Shop
         </h3>    
-        <q-input label="Rechercher" class="search" type="text"/>
+        <q-input label="Search" class="search" type="text" color="purple-1"/>
         <div class="nav-right">
           <Router-link to="/basket">
           <img style="height: 50px;" src="../../public/icons/panier-light.png">
@@ -121,6 +121,12 @@
 
   .header .title{
     display: none;
+  }
+
+  .search :hover {
+    /* margin: 15px; */
+    opacity: 0.9;
+
   }
 
   .search {
