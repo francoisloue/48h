@@ -101,7 +101,7 @@ voir fichier [docker compose](https://github.com/MansourWolou/48h/blob/master/do
 
 ## ⛔Sécurisation
 
-* Équipe
+## 💻Équipe
   . Arnaud CLAVIER - B3 Dev
   . Nicolas SEGURA - B3 Cybersec
   . Mansour WOLOU - B3 Dev
