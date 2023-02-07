@@ -1,5 +1,5 @@
 const express = require("express");
-// const user = require("./controllers/user");
+const user = require("../src/controller/user");
 // const verifyToken = require("./services/verifyToken");
 
 exports.router = (function () {
@@ -9,23 +9,23 @@ exports.router = (function () {
   apiRouter.get("/", (req, res) => {
     res.send("user router working");
   });
-//   // register retailer
-//   apiRouter.route("/register").post(user.register);
+  //   // register retailer
+  //   apiRouter.route("/register").post(user.register);
 
-//   // connection retailer
-//   apiRouter.route("/login").post(user.logIn);
+  //   // connection retailer
+  //   apiRouter.route("/login").post(user.logIn);
 
-//   // deconnection user
-//   apiRouter.route("/logout").post(verifyToken, user.logOut);
+  //   // deconnection user
+  //   apiRouter.route("/logout").post(verifyToken, user.logOut);
 
-//   /*   // reconnect user
-//     apiRouter.route("/reconnect").post(verifyToken, lastView, user.reconnectUser); */
+  //   // reconnect user
+  //   apiRouter.route("/reconnect").post(verifyToken, lastView, user.reconnectUser); */
 
-//   // my info
-//   apiRouter.route("/user/:id").get(verifyToken, user.myInfo);
+  //   // my info
+  //   apiRouter.route("/user/:id").get(verifyToken, user.myInfo);
 
-//   // edit profile
-//   apiRouter.route("/user/:id/edit").patch(verifyToken, user.updateInfo);
+  //   // edit profile
+  //   apiRouter.route("/user/:id/edit").patch(verifyToken, user.updateInfo);
 
   /*  
  

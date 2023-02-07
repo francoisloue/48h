@@ -11,7 +11,7 @@ app.all("*", (req, res, next) => {
 });
 app.use(errorHandler);
 
-const PORT = 3000;
+const PORT = 8080;
 app.listen(PORT, () => {
   console.log(`server running on PORT ${PORT}`);
 });
