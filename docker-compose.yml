@@ -12,8 +12,16 @@ services:
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: test
     volumes:
       - mysql:/var/lib/mysql
+    ports:
+      - "3308:3306"
+    
+  admin:
+    image: adminer
+    ports:
+      - "8080:8080"
 
   backend:
     build: 
