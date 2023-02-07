@@ -7,7 +7,7 @@
             <q-card class="infos">
                 <h2>NAME</h2>
                 <p class="description">
-                    Lorem ipsum dolor sit amet. Non voluptatem modi cum voluptas suscipit ut illum internos et sapiente voluptatum qui reiciendis reprehenderit ut assumenda rerum! Et vitae doloremque quo molestiae possimus non error cupiditate ex optio omnis in eius expedita sit inventore cupiditate. Ut deleniti corporis sit nesciunt exercitationem rem recusandae neque ut minima dolores et cupiditate nulla sit quisquam dolores. Hic tenetur nihil aut unde molestias ex iste laborum quo necessitatibus atque. Ab deleniti consequatur et nihil laboriosam cum laudantium maiores qui nisi natus aut alias minima nam molestiae omnis. Ut velit obcaecati qui possimus nemo ut quasi odit eos consequuntur quibusdam ea eligendi impedit qui culpa inventore ut assumenda nobis. Eum sunt neque aut facilis maxime ut perferendis quia non laudantium nemo id voluptas dolor 33 deserunt ullam qui provident recusandae!
+                    Lorem ipsum dolor sit amet. Non voluptatem modi cum ex optio omnis in eius expedita sit inventore cupiditate. Ut deleniti corporis sit nesciunt exercitationem rem recusandae neque ut minima dolores et cupiditate nulla sit quisquam dolores. Hic tenetur nihil aut unde molestias ex iste laborum quo necessitatibus atque. Ab deleniti consequatur et nihil laboriosam cum laudantium maiores qui nisi natus aut alias minima nam molestiae omnis. Ut velit obcaecati qui possimus nemo ut quasi odit eos consequuntur quibusdam ea eligendi impedit qui culpa inventore ut assumenda nobis. Eum sunt neque aut facilis maxime ut perferendis quia non laudantium nemo id voluptas dolor 33 deserunt ullam qui provident recusandae!
                 </p>
                 <h6>made in france</h6>
             </q-card>
@@ -59,8 +59,8 @@
     }
 
     .infos .description {
-        padding: 20px;
-        text-align: center;
+        padding: 30px;
+        text-align: justify;
     }
 
     .price {
@@ -71,5 +71,11 @@
         gap: 20px;
         height: 400px;
         width: 300px;
+    }
+
+    .picture,
+    .infos,
+    .price {
+        background-color: #E4E4E4;
     }
 </style>

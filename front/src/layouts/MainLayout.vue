@@ -25,9 +25,7 @@
           Lama Shop
         </h3>
           
-        <input class="search" type="text">
-        
-        
+        <input class="search" type="text" name="search" placeholder="Search ...">
 
         <div class="nav-right">
           <a href="https://quasar.dev">
@@ -68,7 +66,7 @@
     justify-content: space-between;
     gap: 15px;
     color: rgb(26, 26, 26);
-    background-color: rgb(228, 228, 228);
+    background-color: #E4E4E4;
   }
 
   .navbar ul {
@@ -117,13 +115,18 @@
     display: none;
   }
 
+  .search {
+    padding:5px;
+    border-radius: 10px;
+  }
+
   .footer {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 60px;
     color: rgb(26, 26, 26);
-    background-color: rgb(228, 228, 228);
+    background-color: #E4E4E4;
   }
 
   @media screen and (min-width: 768px) {
@@ -132,7 +135,7 @@
       justify-content: space-between;
       gap: 25px;
       color: rgb(26, 26, 26);
-      background-color: rgb(228, 228, 228);
+      background-color: #E4E4E4;
     }
 
     .navbar ul {
