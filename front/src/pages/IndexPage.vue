@@ -2,12 +2,12 @@
   <div class="main" >
     <q-page class="grid-frame">
     <q-btn class="frame">
-      <a href="/infos">
+      <router-link to="/infos">
         <img style="width: 250px;" src="../../public/icons/panier.png" alt="">
         <p>
           Name of the product <br>Price
         </p>
-      </a>
+      </router-link>
     </q-btn>
     <q-btn class="frame">
       <img style="width: 250px;" src="../../public/icons/panier.png" alt="">
@@ -89,7 +89,7 @@ export default defineComponent({
 
 <style>
   .main {
-    margin-top: 20px;
+    margin: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
