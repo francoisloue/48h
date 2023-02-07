@@ -1,11 +1,10 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout class="back" view="lHh Lpr lFf">
     <q-header elevated class="header">
       <q-toolbar class="navbar">
         <div class="nav-left">
           <a href="">
-          <a href="">
-            <img style="height: 50px;" src="../../public/icons/lama.png">
+            <img style="height: 50px;" src="../../public/icons/lama-light.png">
           </a>
         </div>
 
@@ -29,13 +28,11 @@
         <input class="search" type="text" name="search" placeholder="Search ...">
 
         <div class="nav-right">
-          <a href="https://quasar.dev">
-            <Router-link to="/basket">
-            <img style="height: 50px;" src="../../public/icons/panier.png">
-            </Router-link>
-          </a>
+          <Router-link to="/basket">
+          <img style="height: 50px;" src="../../public/icons/panier-light.png">
+          </Router-link>
           <router-link to="/register">
-            <img style="height: 42px;" src="../../public/icons/profil.png">
+            <img style="height: 42px;" src="../../public/icons/profil-light.png">
           </router-link>
         </div>
       </q-toolbar>
@@ -64,13 +61,19 @@
     font-family: Arial, Helvetica, sans-serif;
   }
 
+  .back {
+      background-color: #e1cbf0;
+      height: 100%;
+      width: 100%;
+  }
+    
   .navbar {
     display: flex;
     justify-content: space-between;
     gap: 15px;
     gap: 15px;
-    color: rgb(26, 26, 26);
-    background-color: #E4E4E4;
+    color: #e1cbf0;
+    background-color: #222222;
   }
 
   .navbar ul {
@@ -93,13 +96,13 @@
   }
 
   .navbar ul a {
-    color: rgb(26, 26, 26);
+    color: #e1cbf0;
     font-size: medium;
     width: 60px;
   }
 
   .navbar ul a:hover {
-    color: rgb(26, 26, 26);
+    color: #e1cbf0;
     transition: 0.3s;
     text-decoration: underline;
   }
@@ -120,13 +123,14 @@
     align-items: center;
   }
 
-  title{
+  .header .title{
     display: none;
   }
 
   .search {
     padding:5px;
     border-radius: 10px;
+    background-color: #e1cbf0;
   }
 
   .footer {
@@ -134,8 +138,8 @@
     justify-content: center;
     align-items: center;
     height: 60px;
-    color: rgb(26, 26, 26);
-    background-color: #E4E4E4;
+    color: #e1cbf0;
+    background-color: #222222;
   }
 
   @media screen and (min-width: 768px) {
@@ -143,8 +147,8 @@
       display: flex;
       justify-content: space-between;
       gap: 25px;
-      color: rgb(26, 26, 26);
-      background-color: #E4E4E4;
+      color: #e1cbf0;
+      background-color: #222222;
     }
 
     .navbar ul {
@@ -154,8 +158,8 @@
           gap:50px;
     }
 
-    title{
-      width: 110px;
+    .header .title{
+      display: flex;
     }
 }
 </style>

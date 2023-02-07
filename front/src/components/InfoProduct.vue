@@ -2,7 +2,9 @@
     <div class="main" >
         <q-page class="flex-frame">
             <q-card class="picture">
-                <img src="../../public/icons/panier.png" alt="">
+                <q-card class="card">
+                    <img src="../../public/icons/panier.png" alt="">    
+                </q-card>
             </q-card>
             <q-card class="infos">
                 <h2>NAME</h2>
@@ -12,13 +14,15 @@
                 <h6>made in france</h6>
             </q-card>
             <q-card class="price">
-                <h3>100 $</h3>
-                <h6>Free Delivery</h6>
-                <h7>deliver in two days</h7>
-                <h6 style="color: green;" >In Stock</h6>
-                <q-btn>
-                    Buy Now
-                </q-btn>
+                <q-card class="card">
+                    <h3>100 $</h3>
+                    <h6>Free Delivery</h6>
+                    <h7>deliver in two days</h7>
+                    <h6 style="color: green;" >In Stock</h6>
+                    <q-btn>
+                        Buy Now
+                    </q-btn>
+                </q-card>
             </q-card>
         </q-page>
     </div>
@@ -37,15 +41,13 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        background-color: #e1cbf0;
+        width: 100%;
     }
 
     .flex-frame {
         display: flex;
         gap: 10px;
-    }
-
-    .picture {
-        width: 512px;
     }
 
     .infos {
@@ -56,6 +58,7 @@
         padding-top: 20px;
         height: 512px;
         width: 500px;
+        color: #e1cbf0;
     }
 
     .infos .description {
@@ -65,17 +68,24 @@
 
     .price {
         display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 400px;
+        width: 300px;
+    }
+
+    .price .card {
+        display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 20px;
-        height: 400px;
-        width: 300px;
+        padding: 40px;
     }
 
     .picture,
     .infos,
     .price {
-        background-color: #E4E4E4;
+        background-color: #222222;
     }
 </style>
