@@ -36,3 +36,62 @@ _(L'idée serait qu'un utilisateur puisse ajouter un produit dans son panier et 
 
 
 ## API
+
+## BDD 
+
+Pour la base de donnée, nous avons utilisé mysql.
+
+Cette base de donnée va nous servir a stocké nos utilisateurs et commercants pour chaque instance ainsi que les produits associés aux commercants.
+
+- Nous possédont une table Product aves sa primary key "idProduct"
+
+--
+-- Structure de la table `Product`
+--
+
+'''
+CREATE TABLE `Product` (
+  `idProduct` char(36) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `price` bigint(20) NOT NULL,
+  `content` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Index pour la table `Product`
+--
+ALTER TABLE `Product`
+  ADD PRIMARY KEY (`idProduct`);
+'''
+
+- Nous avons aussi créé une table user avec "idUser" en primary key
+
+--
+-- Structure de la table `Users`
+--
+
+'''
+CREATE TABLE `Users` (
+  `idUser` char(36) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `pwd` varchar(255) NOT NULL,
+  `type` enum('admin','customer','retailer') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+--
+-- Index pour la table `Users`
+--
+ALTER TABLE `Users`
+  ADD PRIMARY KEY (`idUser`);
+'''
+
+* Équipe
+  . Arnaud CLAVIER - B3 Dev
+  . Nicolas SEGURA - B3 Cybersec
+  . Mansour WOLOU - B3 Dev
+  . Salomé KARSENTI - B2
+  . François LOUE - B2
+  . Maxime FUZEAU - B1
+  . Esteban LORET - B1
+
