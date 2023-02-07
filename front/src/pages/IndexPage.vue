@@ -126,47 +126,12 @@
         <q-card class="card">
           <img style="width: 250px;" src="../../public/icons/panier.png" alt="">
           <q-card-section>
-            Name of the product <br>100 $
+            <p> Name of the product </p>
+            <h7 style="font-weight: bold">100 $ </h7>
           </q-card-section>
         </q-card>
           
       </Router-link>
-    </q-btn>
-    <q-btn class="frame">
-      <img style="width: 250px;" src="../../public/icons/panier.png" alt="">
-      <p>
-        Name of the product <br>100 $
-      </p>
-    </q-btn>
-    <q-btn class="frame">
-      <img style="width: 250px;" src="../../public/icons/panier.png" alt="">
-      <p>
-        Name of the product <br>100 $
-      </p>
-    </q-btn>
-    <q-btn class="frame">
-      <img style="width: 250px;" src="../../public/icons/panier.png" alt="">
-      <p>
-        Name of the product <br>100 $
-      </p>
-    </q-btn>
-    <q-btn class="frame">
-      <img   style="width: 250px;" src="../../public/icons/panier.png" alt="">
-      <p>
-        Name of the product <br>100 $
-      </p>
-    </q-btn>
-    <q-btn class="frame">
-      <img style="width: 250px;" src="../../public/icons/panier.png" alt="">
-      <p>
-        Name of the product <br>100 $
-      </p>
-    </q-btn>
-    <q-btn class="frame">
-      <img style="width: 250px;" src="../../public/icons/panier.png" alt="">
-      <p>
-        Name of the product <br>100 $
-      </p>
     </q-btn>
   </q-page>
   </div>

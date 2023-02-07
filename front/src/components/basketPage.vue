@@ -61,7 +61,7 @@
 	      </q-btn>
             </q-card-section>
 	    <br>
-	<Router-link to="/commandSuccess"><q-btn label="PASSER LA COMMANDE" class="full-width" color="primary"/></Router-link>
+	<Router-link to="/commandSuccess"><q-btn label="PASSER LA COMMANDE" class="full-width" style="background-color: #222222; color: #fff"/></Router-link>
       </q-card>
     </div>
   </div>
