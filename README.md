@@ -49,7 +49,7 @@ Cette base de donnée va nous servir a stocké nos utilisateurs et commercants p
 -- Structure de la table `Product`
 --
 
-'''bash
+```bash
 CREATE TABLE `Product` (
   `idProduct` char(36) NOT NULL,
   `description` varchar(255) NOT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE `Product` (
 --
 ALTER TABLE `Product`
   ADD PRIMARY KEY (`idProduct`);
-'''
+```
 
 - Nous avons aussi créé une table user avec "idUser" en primary key
 
@@ -70,7 +70,7 @@ ALTER TABLE `Product`
 -- Structure de la table `Users`
 --
 
-'''bash
+```bash
 CREATE TABLE `Users` (
   `idUser` char(36) NOT NULL,
   `username` varchar(255) NOT NULL,
@@ -84,7 +84,7 @@ CREATE TABLE `Users` (
 --
 ALTER TABLE `Users`
   ADD PRIMARY KEY (`idUser`);
-'''
+```
 
 * Équipe
   . Arnaud CLAVIER - B3 Dev
