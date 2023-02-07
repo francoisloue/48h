@@ -2,7 +2,7 @@
   "name": "front",
   "version": "0.0.1",
   "description": "A Quasar Project",
-  "productName": "Test",
+  "productName": "Lama Shop",
   "author": "Anescoo <72858178+Anescoo@users.noreply.github.com>",
   "private": true,
   "scripts": {

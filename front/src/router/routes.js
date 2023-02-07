@@ -44,6 +44,31 @@ const routes = [
   },
 
 
+  {
+    path: '/infos',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '/infos', component: () => import('src/components/InfoProduct.vue')}
+    ]
+  },
+
+  {
+    path: '/register',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '/register', component: () => import('src/components/Auth/registerPage.vue')}
+    ]
+  },
+
+  {
+    path: '/add',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '/add', component: () => import('src/components/addProduct.vue')}
+    ]
+  },
+
+
   // Always leave this as last one,
   // but you can also remove it
   {
