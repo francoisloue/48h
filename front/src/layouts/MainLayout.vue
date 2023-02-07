@@ -37,30 +37,6 @@
             <img style="height: 42px;" src="../../public/icons/profil.png">
           </router-link>
         </div>
-        <!-- <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        /> -->
-
-        <!-- <q-toolbar-title>
-          Lama Shop
-        </q-toolbar-title> -->
-
-        <!-- <a href="">
-          All
-        </a>
-
-        <a href="https://quasar.dev">
-          <img style="height: 50px;" src="../../public/icons/panier.png">
-        </a>
-    
-        <a href="https://quasar.dev">
-          <img style="height: 42px;" src="../../public/icons/profil.png">
-        </a> -->
       </q-toolbar>
     </q-header>
 
