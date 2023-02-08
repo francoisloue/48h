@@ -6,6 +6,7 @@ const productRouter = require("./src/routes/products.route").router;
 const AppError = require("./src/utils/appError");
 const errorHandler = require("./src/utils/errorHandler");
 const retailerRouter = require("./retailer/retailer.route").router;
+const userRouter = require("./src/routes/user.route").router;
 
 const app = express();
 app.use(express.json());
@@ -30,6 +31,7 @@ app.get("/", (request, response) => {
   response.json({ info: "Node.js, Express, and Mysql API" });
 });
 app.use("/products", productRouter);
+app.use("/user", userRouter);
 app.use("/api/v1/retailer", retailerRouter);
 app.use(errorHandler);
 //TODO:

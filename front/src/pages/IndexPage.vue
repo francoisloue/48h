@@ -34,8 +34,6 @@ export default defineComponent({
     async getData() {
     const reponse = await axios.get("http://localhost:8080/products");
     this.allData = reponse.data.data;
-    console.log(this.allData);
-    console.log(this.allData[0].content);
     }
   },
   async mounted() {
