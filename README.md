@@ -96,6 +96,48 @@ Au cours du projet, nous avons utilisé des dockerfiles ainsi qu'un docker compo
 ```bash
 pour lancer les conteneurs :    docker-compose up
 ```
+- On a un premier conteneur nommé "database" pour la BDD, il sert a stocker l'image "mysql", renseigner le nom de la base et son mot de passe. Sur ce conteneur, on ouvre le port "3307:3306".
+
+```bash
+database:
+    build:
+      context: ./database/.
+    container_name: database
+    # NOTE: use of "mysql_native_password" is not recommended: https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password
+    # (this is just an example, not intended to be a production configuration)
+    command: --default-authentication-plugin=mysql_native_password
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: shop
+      MYSQL_ROOT_PASSWORD: example
+      
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql:/var/lib/mysql
+```
+
+- Notre deuxième conteneur stocke le backend, donc notre api. On ouvre le port "3000"
+
+```bash
+backend:
+    build: 
+      context: ./server/.
+    container_name: backend
+    ports:
+      - "3000:3000"
+```
+
+- Notre troisième conteneur stocke le frontend, donc notre site web. On ouvre le port "9000"
+
+```bash
+ front:
+    build:
+      context: ./front/.
+    container_name: front
+    ports:
+      - "9000:9000"
+```
 
 voir fichier [docker compose](https://github.com/MansourWolou/48h/blob/master/docker-compose.yml)
 
