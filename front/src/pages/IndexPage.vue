@@ -16,6 +16,17 @@
           </q-card>
         </Router-link>
       </q-btn>
+      <q-btn class="frame">
+        <Router-link to="/infos">
+          <q-card class="card">
+            <img style="width: 250px;" src="../../public/icons/panier.png" alt="">
+            <q-card-section>
+              <p>Name of the product </p>
+              <h7 styl>100 $ </h7>
+            </q-card-section>
+          </q-card> 
+        </Router-link>
+      </q-btn>
     </q-page>
   </div>
 </template>

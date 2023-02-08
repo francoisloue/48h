@@ -1,8 +1,10 @@
 <template>
   <div class="q-pa-xl">
     <div class="flex flex-center column">
-      <h1>Sign UP</h1>
-      <q-card>
+      <q-card id="register">
+            <q-card-section class="title">
+              <h3>Sign Up</h3>
+            </q-card-section>
         <q-card-section>
           <q-input
             label="Username"
@@ -76,14 +78,14 @@ export default defineComponent({
 </script>
 
 <style>
-#register {
-  background-color: #e1cbf0;
-  color: #222222;
-}
+  #register {
+    background-color: #e1cbf0;
+    color: #222222;
+  }
 
-#register .title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  #register .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 </style>
