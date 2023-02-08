@@ -3,180 +3,15 @@
     <q-page class="grid-frame">
       <q-btn class="frame">
         <Router-link to="/infos">
-          <q-card class="card">
+          <q-card class="card" v-for="data in allData" :key="data">
             <img
               style="width: 250px"
               src="../../public/icons/panier.png"
               alt=""
             />
-            <q-card-section>
-              <p>Name of the product</p>
-              <h7 styl>100 $ </h7>
-            </q-card-section>
-          </q-card>
-        </Router-link>
-      </q-btn>
-      <q-btn class="frame">
-        <Router-link to="/infos">
-          <q-card class="card">
-            <img
-              style="width: 250px"
-              src="../../public/icons/panier.png"
-              alt=""
-            />
-            <q-card-section>
-              <p>Name of the product</p>
-              <h7 styl>100 $ </h7>
-            </q-card-section>
-          </q-card>
-        </Router-link>
-      </q-btn>
-      <q-btn class="frame">
-        <Router-link to="/infos">
-          <q-card class="card">
-            <img
-              style="width: 250px"
-              src="../../public/icons/panier.png"
-              alt=""
-            />
-            <q-card-section>
-              <p>Name of the product</p>
-              <h7 styl>100 $ </h7>
-            </q-card-section>
-          </q-card>
-        </Router-link>
-      </q-btn>
-      <q-btn class="frame">
-        <Router-link to="/infos">
-          <q-card class="card">
-            <img
-              style="width: 250px"
-              src="../../public/icons/panier.png"
-              alt=""
-            />
-            <q-card-section>
-              <p>Name of the product</p>
-              <h7 styl>100 $ </h7>
-            </q-card-section>
-          </q-card>
-        </Router-link>
-      </q-btn>
-      <q-btn class="frame">
-        <Router-link to="/infos">
-          <q-card class="card">
-            <img
-              style="width: 250px"
-              src="../../public/icons/panier.png"
-              alt=""
-            />
-            <q-card-section>
-              <p>Name of the product</p>
-              <h7 styl>100 $ </h7>
-            </q-card-section>
-          </q-card>
-        </Router-link>
-      </q-btn>
-      <q-btn class="frame">
-        <Router-link to="/infos">
-          <q-card class="card">
-            <img
-              style="width: 250px"
-              src="../../public/icons/panier.png"
-              alt=""
-            />
-            <q-card-section>
-              <p>Name of the product</p>
-              <h7 styl>100 $ </h7>
-            </q-card-section>
-          </q-card>
-        </Router-link>
-      </q-btn>
-      <q-btn class="frame">
-        <Router-link to="/infos">
-          <q-card class="card">
-            <img
-              style="width: 250px"
-              src="../../public/icons/panier.png"
-              alt=""
-            />
-            <q-card-section>
-              <p>Name of the product</p>
-              <h7 styl>100 $ </h7>
-            </q-card-section>
-          </q-card>
-        </Router-link>
-      </q-btn>
-      <q-btn class="frame">
-        <Router-link to="/infos">
-          <q-card class="card">
-            <img
-              style="width: 250px"
-              src="../../public/icons/panier.png"
-              alt=""
-            />
-            <q-card-section>
-              <p>Name of the product</p>
-              <h7 styl>100 $ </h7>
-            </q-card-section>
-          </q-card>
-        </Router-link>
-      </q-btn>
-      <q-btn class="frame">
-        <Router-link to="/infos">
-          <q-card class="card">
-            <img
-              style="width: 250px"
-              src="../../public/icons/panier.png"
-              alt=""
-            />
-            <q-card-section>
-              <p>Name of the product</p>
-              <h7 styl>100 $ </h7>
-            </q-card-section>
-          </q-card>
-        </Router-link>
-      </q-btn>
-      <q-btn class="frame">
-        <Router-link to="/infos">
-          <q-card class="card">
-            <img
-              style="width: 250px"
-              src="../../public/icons/panier.png"
-              alt=""
-            />
-            <q-card-section>
-              <p>Name of the product</p>
-              <h7 styl>100 $ </h7>
-            </q-card-section>
-          </q-card>
-        </Router-link>
-      </q-btn>
-      <q-btn class="frame">
-        <Router-link to="/infos">
-          <q-card class="card">
-            <img
-              style="width: 250px"
-              src="../../public/icons/panier.png"
-              alt=""
-            />
-            <q-card-section>
-              <p>Name of the product</p>
-              <h7 styl>100 $ </h7>
-            </q-card-section>
-          </q-card>
-        </Router-link>
-      </q-btn>
-      <q-btn class="frame">
-        <Router-link to="/infos">
-          <q-card class="card">
-            <img
-              style="width: 250px"
-              src="../../public/icons/panier.png"
-              alt=""
-            />
-            <q-card-section>
-              <p>Name of the product</p>
-              <h7 styl>100 $ </h7>
+            <q-card-section >
+              <p>{{ data.content }}</p>
+              <p>{{ data.price }}</p>
             </q-card-section>
           </q-card>
         </Router-link>
@@ -187,9 +22,25 @@
 
 <script>
 import { defineComponent } from "vue";
-
+import axios from "axios";
 export default defineComponent({
   name: "IndexPage",
+  data () {
+    return {
+      allData: []
+    }
+  },
+  methods: {
+    async getData() {
+    const reponse = await axios.get("http://localhost:8080/products");
+    this.allData = reponse.data.data;
+    console.log(this.allData);
+    console.log(this.allData[0].content);
+    }
+  },
+  async mounted() {
+    await this.getData();
+  }
 });
 </script>
 
