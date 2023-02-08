@@ -40,7 +40,7 @@ exports.getId = (req, res, next) => {
     return next(new AppError("No user id found", 404));
   }
   con.query(
-    "SELECT * FROM Product WHERE id = ?",
+    "SELECT * FROM Product WHERE idProduct = ?",
     [req.params.id],
     function (err, data, fields) {
       if (err || data?.length <= 0) return next(new AppError(err, 500));
