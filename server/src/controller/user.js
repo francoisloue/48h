@@ -1,5 +1,6 @@
 const AppError = require("../utils/appError");
 const con = require("../services/db");
+const crypto = require("crypto");
 
 exports.getAll = (req, res, next) => {
   con.query("SELECT * FROM Users", function (err, data, fields) {
@@ -14,10 +15,15 @@ exports.getAll = (req, res, next) => {
 
 exports.create = (req, res, next) => {
   if (!req.body) return next(new AppError("No form data found", 404));
-  const values = [req.body.instance, req.body.username, req.body.password];
+  const values = [
+    crypto.randomUUID(),
+    req.body.instance,
+    req.body.username,
+    req.body.password,
+  ];
   console.log(values);
   con.query(
-    "INSERT INTO Users (instance, username, password) VALUES(?)",
+    "INSERT INTO Users (idUser, username, password, type) VALUES(?)",
     [values],
     function (err, data, fields) {
       if (err) return next(new AppError(err, 500));
