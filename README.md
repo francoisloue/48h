@@ -162,7 +162,7 @@ on pourrait envisager d'utilisé le protocol ARP (Address Resolution Protocol).
 Ce protocole permet de faire le liens entre les addresse ip et les addresse mac des cartes réseaux.
 
 
-# La Redondance et controlle de ressources
+# La Redondance et controle de ressources
 
 - Dans l'optique que nos conteneurs soit toujours disponible, nous voulions mettre en place de la redondance sur les conteneurs, au cas ou l'un d'entre eux tomberaient.
 
