@@ -43,7 +43,9 @@ Pour la base de donnée, nous avons utilisé mysql.
 
 Cette base de donnée va nous servir a stocké nos utilisateurs et commercants pour chaque instance ainsi que les produits associés aux commercants.
 
-- Nous possédont une table Product aves sa primary key "idProduct"
+- Nous possédons une table Product aves sa primary key "idProduct"
+
+Cette table sert a stocker nos diffèrents produits avec leur nom,description et  prix.
 
 --
 -- Structure de la table `Product`
@@ -65,6 +67,8 @@ ALTER TABLE `Product`
 ```
 
 - Nous avons aussi créé une table user avec "idUser" en primary key
+
+Cette table stocke les utilisateurs avec leur nom,mot de passe et la catégorie. Soit un admin, soit un commercant ou soit un utilisateur.
 
 --
 -- Structure de la table `Users`
