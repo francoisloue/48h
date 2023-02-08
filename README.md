@@ -1,4 +1,4 @@
----
+
 **Pour lancer le projet :**
 
 - cd /front
@@ -34,7 +34,25 @@ _(L'idée serait qu'un utilisateur puisse ajouter un produit dans son panier et 
 
 -   En tant qu'administrateur d'une instance, Blacklister des instances concurrentes pour que leurs produits n'apparaissent pas même si notre instance y est indirectement liée. ❌
 
+## POC
+Ici nous expliquons comment nous avons compris le sujet et surtout ce que nous avons essayé d'implémenté.
 
+ **D'abord le site ecommerce**
+ 
+Il est composé de 3 partie. Un container pour le front ( avec vuejs ) un container pour le backend ( en javascript ) et un dernier pour la base de donnée du sit ( avec mysql ).
+
+L'idée est que la création d'une instance correspond au déploiment de notre repos. 
+- Une fois le projet exécuter le créateur de l'instance peut définir les administateur et a accès au code pour y effectuer les modifications voulu. De cette façon une instance de site ecommerce est disponible sur le réseau décentralisé.
+- Ainsi il est facilement possible pour n'importe  qui  de créer un instance. De cette façon les créateurs des instance peuvent créer n'importe quel règle sur leur instance.
+- Comment les instance communique? Il s'agit de communication en requète apii. Quand un client vient commander  un produit sur une instance , le backend va chercher ce produit dans sa base de donnée puis va retourner le produit au client si il est retrouvé. Dans le cas ou ce produit n'est pas disponible sur la base de donnée de l'instance ; une requète est réalisé vers une autre instance pour que elle le recherche dans sa base de données. 
+- Chaque instance a une liste des addresse des autres instances pour communiqué avec elles
+  
+## SOLOUTIONS IMPLEMENTÉES ET MANQUANTES
+Nous avons pu créer un front et  une base de donnée  mais le backend n'est pas fini.
+Il nous manque :
+- Le systemet de recheerche des produits entre instances
+- La sécurisation de la base de donnée
+- La sécuristaion de la communication entre instance 
 ## API
 
 ## 🛢BDD 
