@@ -21,12 +21,11 @@ exports.create = (req, res, next) => {
     req.body.price,
     req.body.content,
   ];
-  console.log(req.body);
   con.query(
     "INSERT INTO Product (idProduct, description, price, content) VALUES(?)",
     [values],
     function (err, data, fields) {
-      if (err) return next(new AppError(err, 500), console.log(data));
+      if (err) return next(new AppError(err, 500));
       res.status(201).json({
         status: "success",
         message: "user created!",
@@ -40,7 +39,7 @@ exports.getId = (req, res, next) => {
     return next(new AppError("No user id found", 404));
   }
   con.query(
-    "SELECT * FROM Product WHERE id = ?",
+    "SELECT * FROM Product WHERE idProduct = ?",
     [req.params.id],
     function (err, data, fields) {
       if (err || data?.length <= 0) return next(new AppError(err, 500));

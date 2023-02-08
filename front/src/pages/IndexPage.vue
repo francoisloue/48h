@@ -11,7 +11,7 @@
             />
             <q-card-section >
               <p>{{ data.content }}</p>
-              <p>{{ data.price }}</p>
+              <p>{{ data.price }}$</p>
             </q-card-section>
           </q-card>
         </Router-link>
@@ -34,8 +34,6 @@ export default defineComponent({
     async getData() {
     const reponse = await axios.get("http://localhost:8080/products");
     this.allData = reponse.data.data;
-    console.log(this.allData);
-    console.log(this.allData[0].content);
     }
   },
   async mounted() {
@@ -74,7 +72,7 @@ export default defineComponent({
 @media screen and (min-width: 768px) {
   .grid-frame {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     gap: 40px;
   }
 }
