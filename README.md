@@ -147,6 +147,160 @@ voir fichier [docker compose](https://github.com/MansourWolou/48h/blob/master/do
 
 ## ⛔Sécurisation
 
+Pour la partie sécurité quelques points sont a abordés.
+
+Nous devons premièrement sécurisé le docker-compose qui gère la conteneurisation.
+
+# Les Ports
+
+- Commencons par les ports. 
+Pour la sécurité des conteneurs nous ouvrons seulement les ports qu'on besoin les conteneurs pour communiquer comme par exemple le port "9000" ou "3000".
+
+- Pour communiquer entre toutes les instances, nous utiliserons le protocole https pour sécurisé la communication. Pour permettre aux instances de se reconnaitre, 
+on pourrait envisager d'utilisé le protocol ARP (Address Resolution Protocol). 
+
+Ce protocole permet de faire le liens entre les addresse ip et les addresse mac des cartes réseaux.
+
+
+# La Redondance et controlle de ressources
+
+- Dans l'optique que nos conteneurs soit toujours disponible, nous voulions mettre en place de la redondance sur les conteneurs, au cas ou l'un d'entre eux tomberaient.
+
+Une techno que nous pourrions utilisé est docker swarm qui sert a l’orchestration de conteneurs.
+Grâce a cela nous pourrions gérer de la redondance de conteneurs mais aussi de la répartition de charge avec du load balancing.
+
+
+Cette techno est d'autant plus avantageuse car elle est complémentaire a docker compose.
+
+```bash
+version: "3.8"
+
+networks:
+  main_network:
+    external: true
+
+services:
+  database:
+    image: mysql
+    environment:
+      - MYSQL_DATABASE: shop
+      - MYSQL_ROOT_PASSWORD: example
+    volumes:
+      - mysql:/var/lib/mysql
+    networks:
+      - main_network
+    deploy:
+      placement: 
+        constraints:
+          - node.role == manager
+          - node.labels.type == database
+
+  backend:
+    depends_on:
+      - database
+    networks:
+      - main_network
+    deploy:
+      placement: 
+        constraints:
+          - node.role == worker
+          - node.labels.type == cheap
+
+  front:
+    depends_on:
+      - database
+    networks:
+      - main_network
+    deploy:
+      placement: 
+        constraints:
+          - node.role == worker
+          - node.labels.type == machine-learning
+```
+
+Ici le back et le front dependent du conteneur database 
+
+Grâce a swarm nous pouvons limiter les ressources et les controllés mais aussi les répliqué.
+
+```bash
+resources:
+        limits:
+          cpus: '0.8'
+          memory: 10G
+        reservations:
+          cpus: '0.5'
+          memory: 5G
+      replicas: 3
+```
+
+# Sauvegardes
+
+- On pourrait mettre en place des backups des conteneurs grâce a un veeam.
+
+Nous pourrions sauvegarder toutes les semaines nos conteneurs pour assurer la disponibilité.
+
+# Reverse Proxy
+
+- La mise en place d'un reverse proxy permettrait de cacher nos ports lorqu'on accède au site web ou a la bdd.
+
+- Pour recourir au reverse proxy, il faudrait installer le service nginx grâce a son image. Donc nginx va gérer les requetes su rle 80 en reverse proxy.
+```bash
+version: '3.7'
+services:
+  reverse-proxy:
+    image: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
+
+  database:
+    image: containous/database
+    container_name: databse
+```
+- Je vais  utiliser un fichier de configuration que je vais monter dans mon conteneur.
+
+```bash
+events {
+
+}
+
+http {
+  server {
+    listen 80;
+
+    location / {
+      proxy_pass http://whoami:80;
+    }
+  }
+}
+```
+
+# Cacher le mdp
+
+- Nous avons essayé de mettre en place une fonction pour haché le mot de passe administrateur 
+mysql du conteneur.
+
+Premièrement le mot de passe administrateur mysql était mis en clair dans notre fichier yaml docker-compose, 
+le problème étant que ce mot de passe est visible et accessible de tous. Pour remédier à ça nous avons commencé par enlever la version claire du 
+mot de passe pour pouvoir la mettre dans un fichier .env pour que celui-ci soit plus compliqué d’accès.
+Puis nous avons décider de créer une fonction en vue js nous permettant de hasher le mot de passe grâce à l’import de bcrypt.
+Celui-ci compare le hash stocké et le hash du mot de passe en clair grace a un booléen pui il est acheminé dans le dockerfile puis dans le fichier yaml. 
+Les problèmes rencontrés ont été que premièrement la fonction permettant de hasher le mot de passe devait être directement ajoutée au back dans l’API, l’autre problème étant la vérification du mdp devait se faire 
+du coté serveur et non client. Comme alternative à ces problèmes il y a la sécurisation et le filtrage d’accès au fichier .env qui peut contenir le mdp en clair.
+
+
+
+# Contrôle des droits admin
+
+- Pour gérer notre docker, une personnes est obligé de détenir les droits admin.Pour assurer le bon fonctionnement du docker, une deuxième peronnes aura les droits admin.
+
+- Les commercants, eux auront des droits admin sur leur propre instances. Car chaque commercant peut fixer ses propres règles sur son instance.
+
+- Les utilisateurs n'auront aucun droits admin.
+
+
+
 ## 💻Équipe
   . Arnaud CLAVIER - B3 Dev
   . Nicolas SEGURA - B3 Cybersec
